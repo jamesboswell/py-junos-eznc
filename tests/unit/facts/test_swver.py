@@ -85,7 +85,7 @@ class TestSwver(unittest.TestCase):
         self.dev.rpc.cli = MagicMock()
         self.facts['vc_capable'] = True
         _get_swver(self.dev, self.facts)
-        self.dev.rpc.cli.assert_called_with('show version all-members', format='xml')
+        self.dev.rpc.cli.assert_called_with('show version all-members invoke-on all-routing-engines', format='xml')
 
     def test_get_swver_vc_capable_standalone(self):
         def raise_ex(*args):

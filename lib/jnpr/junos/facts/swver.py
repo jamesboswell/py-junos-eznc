@@ -82,7 +82,7 @@ def _get_swver(dev, facts):
     # See if we're VC Capable
     if facts['vc_capable'] is True:
         try:
-            return dev.rpc.cli("show version all-members", format='xml')
+            return dev.rpc.cli("show version all-members invoke-on all-routing-engines", format='xml')
         except:
             pass
     try:
